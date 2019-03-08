@@ -19,6 +19,8 @@ A complete overhaul of my previous sshell, along with additional features from a
 
 ## Building
 
-## Organization
+## File Organization
 
 ## Conventions
+
+## Program Specification
