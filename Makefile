@@ -1,0 +1,2 @@
+# Target
+exe := fshell
