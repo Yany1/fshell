@@ -16,3 +16,9 @@ A complete overhaul of my previous sshell, along with additional features from a
 ### Additional Features
 * Log and reuse previous commands
 * Auto complete
+
+## Building
+
+## Organization
+
+## Conventions
