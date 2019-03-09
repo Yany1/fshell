@@ -20,6 +20,10 @@ A complete overhaul of my previous sshell, along with additional features from a
 ## Building
 
 ## File Organization
+* `./include/` for all self defined header files
+* `./src/` for all source files
+* `./test/` for all testing files
+* Final executable names fshell is at the outer most folder
 
 ## Conventions
 
@@ -53,3 +57,6 @@ A Command_line is an entire line of command entered by the user. It is a string 
 A command is a string that issues a single shell command (built-in or otherwise). A command_line can consist of multiple commands pipelined together
 
 ### Pipeline
+
+## Testing
+Unit testing c script and a total testing shell script
