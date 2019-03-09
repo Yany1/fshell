@@ -22,5 +22,4 @@ CFLAGS += -O2
 else
 CFLAGS += -g
 CFLAGS += -O0
-CFLAGS += -D LIBFS_DEBUG
 endif
