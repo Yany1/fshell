@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define FORMAT_CLEAR "\033[0m" // default output format
+#define FORMAT_TRASH "\033[1;34m" // output format for shell prompt
+#define FORMAT_WARNING "\033[1;31m" // output format for WARNING prompt
 #define MAX_LINE_LENGTH 512 // max length of command line including '\0'
 
 /**
@@ -38,16 +41,16 @@ int main(void)
         char buffer[MAX_LINE_LENGTH]; // hold the line
         memset(buffer, 0, MAX_LINE_LENGTH);
 
-        printf("\033[1;34mfshell\033[0m$ ");
+        printf("%straSH%s$ ", FORMAT_TRASH, FORMAT_CLEAR);
         if (read_line(buffer))
         {
-            printf("\033[1;31mInput exceeded max length\033[0m\n");
+            printf("%sInput exceeded max length%s\n", FORMAT_WARNING, FORMAT_CLEAR);
             continue;
         }
 
         if (!strncmp(buffer, "exit", MAX_LINE_LENGTH))
         {
-            printf("Exit fshell\n");
+            printf("Exit traSH\n");
             exit(0);
         }
         // FIXME: better ways?
