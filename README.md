@@ -50,11 +50,13 @@ being the struct pointer.
 
 #### Command_line
 A Command_line is an entire line of command entered by the user. It is a string that terminates wirh "\n\0"
+* A command line cannot exceed 512 characters
 
 #### Parsing Command_line
 
 #### Command
 A command is a string that issues a single shell command (built-in or otherwise). A command_line can consist of multiple commands pipelined together
+* There can be at most 16 arguments per single command. An argument can be as long as 64 characters
 
 ### Pipeline
 
