@@ -1,9 +1,10 @@
 # Copyright (c) 2019 Yanyi Hu, under the MIT License
 # Target
 exe := traSH
-obj := main.o
+objects := main.o
+obj_dir := obj
 
-all := $(exe)
+all: $(obj_dir) $(exe)
 
 # Compiler
 CC := gcc
@@ -22,17 +23,23 @@ CFLAGS += -g
 CFLAGS += -O0
 endif
 
-$(exe): $(obj)
-	@echo "LD $@"
+# create temp directory
+$(obj_dir):
+	@echo "MKDIR $@"
+	$(Q)mkdir -p $(obj_dir)
+
+# final executable
+$(exe): $(obj_dir)/$(objects)
+	@echo "LD    $@"
 	$(Q)$(CC) $(CFLAGS) -o $@ $<
 
 # objects
-%.o: %.c
-	@echo "CC $@"
+$(obj_dir)/%.o: %.c
+	@echo "CC    $@"
 	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
 .PHONY: clean
 
 clean:
 	@echo "CLEAN"
-	$(Q)rm -f core $(exe) *.o
+	$(Q)rm -rf core $(exe) $(obj_dir)

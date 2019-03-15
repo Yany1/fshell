@@ -13,23 +13,6 @@
 #define MAX_ARG_LENGTH  256          // max length of an argument
 #define MAX_ARG_NUM     16           // max number of arguments
 
-// int tokenize(const char* str, char* data, size_t length)
-// {
-//     static int i = 0;
-
-//     // if str != NULL
-//     if (str)
-//     {
-//         i = 0;
-//     }
-
-//     for (i; str[i] != '\0'; i++)
-//     {
-//         //
-//     }
-//     return -1;
-// }
-
 /**
  * struct command - data type to hold a single command
  * @arg_count: count of arguments
@@ -70,9 +53,6 @@ void command_destroy(command_ptr_t cmd)
 
 command_ptr_t command_parse(const char* cmd_line)
 {
-    // if (strnlen(cmd_line, MAX_LINE_LENGTH) == 0)
-    //     return NULL;
-
     // copy the incoming line
     char copied_line[MAX_LINE_LENGTH];
     memset(copied_line, 0, MAX_LINE_LENGTH);
@@ -85,15 +65,6 @@ command_ptr_t command_parse(const char* cmd_line)
         return NULL;
 
     command_ptr_t new_cmd = command_create();
-
-    // memset(new_cmd->program, 0, MAX_ARG_LENGTH);
-    // if (!token || strnlen(token, MAX_ARG_LENGTH) == MAX_ARG_LENGTH)
-    // {
-    //     free(new_cmd);
-    //     return NULL;
-    // }
-    // else
-    //     strncpy(new_cmd->program, token, MAX_ARG_LENGTH);
     
     int i = 0;
     for (i = 0; i < MAX_ARG_NUM && token; i++)
@@ -192,13 +163,9 @@ int main(void)
                 printf("Exit traSH\n");
                 exit(0);
             }
-
             command_destroy(new_cmd);
             new_cmd = NULL;
         }
-        // // FIXME: better ways?
-        // if(buffer[0] != '\0')
-        //     printf("%s\n", buffer);
     }
 
     return 0;
