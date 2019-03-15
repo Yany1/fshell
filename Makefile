@@ -3,6 +3,7 @@
 exe := traSH
 objects := main.o
 obj_dir := obj
+src_dir := src
 
 all: $(obj_dir) $(exe)
 
@@ -34,7 +35,7 @@ $(exe): $(obj_dir)/$(objects)
 	$(Q)$(CC) $(CFLAGS) -o $@ $<
 
 # objects
-$(obj_dir)/%.o: %.c
+$(obj_dir)/%.o: $(src_dir)/%.c
 	@echo "CC    $@"
 	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
 
