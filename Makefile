@@ -12,6 +12,8 @@ CC := gcc
 
 # CC flags
 CFLAGS := -Wall -Werror
+# Generate dependencies
+DEPFLAGS = -MMD -MF $(@:.o=.d)
 
 ifneq ($(V),1)
 Q = @
@@ -23,6 +25,10 @@ else
 CFLAGS += -g
 CFLAGS += -O0
 endif
+
+# Include dependencies
+deps := $(patsubst %.o,%.d,$(objs))
+-include $(deps)
 
 # create temp directory
 $(obj_dir):
@@ -37,7 +43,7 @@ $(exe): $(obj_dir)/$(objects)
 # objects
 $(obj_dir)/%.o: $(src_dir)/%.c
 	@echo "CC    $@"
-	$(Q)$(CC) $(CFLAGS) -c -o $@ $<
+	$(Q)$(CC) $(CFLAGS) -c -o $@ $< $(DEPFLAGS)
 
 .PHONY: clean
 

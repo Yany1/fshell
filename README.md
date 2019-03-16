@@ -35,6 +35,7 @@ Follows Kernel style, specifically:
 for function calls
 * All virtual disk files generated should be named `*.fs`
 * In line comment using single-line comments. Documentations using multi-line comments
+* Enforced offensive programing (success or crash)
 
 ### Naming Convention
 * small_letter_snake_case for type alias, variables and functions
