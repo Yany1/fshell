@@ -21,8 +21,8 @@
 typedef struct command *command_ptr_t;
 struct command
 {
-    int    arg_count;
-    char** args;
+    int   arg_count;
+    char *args[MAX_ARG_NUM + 1];
 };
 
 /**
@@ -35,11 +35,14 @@ command_ptr_t command_create()
     command_ptr_t new_cmd = malloc(sizeof(struct command));
     new_cmd->arg_count = 0;
     // +1 to include the trailing NULL ptr
-    new_cmd->args = malloc((MAX_ARG_NUM + 1) * sizeof(char*));
+    // new_cmd->args = malloc((MAX_ARG_NUM + 1) * sizeof(char*));
 
     return new_cmd;
 }
 
+/**
+ * command_destroy - free all allocated resources
+ */
 void command_destroy(command_ptr_t cmd)
 {
     while (cmd->arg_count != 0)
@@ -47,7 +50,7 @@ void command_destroy(command_ptr_t cmd)
         free(cmd->args[cmd->arg_count - 1]);
         cmd->arg_count--;
     }
-    free(cmd->args);
+    // free(cmd->args);
     free(cmd);
 }
 
@@ -161,6 +164,8 @@ int main(void)
             if (!strncmp(new_cmd->args[0], "exit", MAX_ARG_LENGTH) && new_cmd->arg_count == 1)
             {
                 printf("Exit traSH\n");
+                command_destroy(new_cmd);
+                new_cmd = NULL;
                 exit(0);
             }
             command_destroy(new_cmd);
