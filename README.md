@@ -1,4 +1,4 @@
-# fshell
+# traSH
 This is a continuation of the Unix-like shell I did in my OS class. I want to add more functionality that makes it more usable.
 
 ## Goal
@@ -35,6 +35,7 @@ Follows Kernel style, specifically:
 for function calls
 * All virtual disk files generated should be named `*.fs`
 * In line comment using single-line comments. Documentations using multi-line comments
+* Enforced offensive programing (success or crash)
 
 ### Naming Convention
 * small_letter_snake_case for type alias, variables and functions
@@ -50,11 +51,13 @@ being the struct pointer.
 
 #### Command_line
 A Command_line is an entire line of command entered by the user. It is a string that terminates wirh "\n\0"
+* A command line cannot exceed 512 characters
 
 #### Parsing Command_line
 
 #### Command
 A command is a string that issues a single shell command (built-in or otherwise). A command_line can consist of multiple commands pipelined together
+* There can be at most 16 arguments per single command. An argument can be as long as 64 characters
 
 ### Pipeline
 

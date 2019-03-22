@@ -159,4 +159,7 @@ tags
 # Ignore all local history of files
 .history
 
+### traSH project ###
+traSH
+
 # End of https://www.gitignore.io/api/c,vim,macos,linux,sublimetext,visualstudiocode
