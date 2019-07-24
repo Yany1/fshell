@@ -3,7 +3,18 @@ This is a continuation of the Unix-like shell I did in my OS class. I want to ad
 
 ## Goal
 
-A complete overhaul of my previous sshell, along with additional features from a real shell (e.g. bash or tcsh)
+A complete overhaul of my previous sshell, along with additional features from a real shell (e.g. bash or tcsh). Below
+is a rough plan for this project
+
+#### Phase 1: Single Execution with Status Display and IO Redirection
+
+#### Phase 2: Pipelining
+
+#### Phase 3: Background Execution
+
+#### Phase 4: Shortcut to Previous Commands
+
+#### Phase 5: Auto-complete?
 
 ## Features
 
